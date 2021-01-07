@@ -1,4 +1,4 @@
-package com.muglove.projcet.muglove.conroller;
+package com.muglove.projcet.muglove.controller;
 
 import com.muglove.projcet.muglove.dto.TestDto;
 import com.muglove.projcet.muglove.service.TestService;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/main")
-public class TestContoller {
+public class TestController {
     @Autowired
     TestService service;
 
