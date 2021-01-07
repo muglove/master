@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quantum.project.dao.TestDao">
+
+    <select id="selectTestList" parameterType="testDto" resultType="testDto">
+        SELECT  <include refid="testColums"/>
+        FROM stock_info
+    </select>
+
+</mapper>
