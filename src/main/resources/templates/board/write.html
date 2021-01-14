@@ -9,23 +9,26 @@
 </head>
 <body>
     <div class="container">
+        <h2>글쓰기</h2>
         <table>
             <tr>
                 <td>제목</td>
-                <td><input type="text"/></td>
+                <td><input class="form-control W100P" type="text"/></td>
             </tr>
             <tr>
                 <td>내용</td>
-                <td><textarea></textarea></td>
-            </tr>
-            <tr>
-
-
+                <td><textarea class="form-control" rows="10"></textarea></td>
             </tr>
         </table>
-        <button type="button" class="btn btn-info" onclick="location.href='list.html'">
-            목록
-        </button>
+
+        <div style="text-align: right">
+            <button type="button" class="btn btn-success" onclick="location.href='list.html'">
+                등록
+            </button>
+            <button type="button" class="btn btn-info" onclick="location.href='list.html'">
+                목록
+            </button>
+        </div>
     </div>
 </body>
 </html>
