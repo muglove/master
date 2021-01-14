@@ -18,21 +18,8 @@ public class TestController {
     TestService service;
 
     @ResponseBody
-    @RequestMapping("/test/stock")
-    public Map<String, String> stockName() {
-        String stockId = "";
-        String stockName = "";
-
-        try {
-            List<TestDto> dtos = service.getBoardList();
-            TestDto dto = dtos.get(1);
-        } catch (Exception e){
-            System.out.println("");
-        }
-
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("stockId", "001");
-        map.put("stockName", "신한은행");
-        return map;
+    @RequestMapping("/board")
+    public String getBoard() {
+        return "board/board.html";
     }
 }
