@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     @PostMapping("/create")
     public String create(User user){
-        System.out.println("User: user" );
+        System.out.println("User:"+user );
         return "index";
     }
 }
