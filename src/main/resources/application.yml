@@ -1,7 +1,7 @@
 spring:
   datasource:
     platform: mysql
-    jdbc-url: jdbc:mysql://muglove.cpzhoeggzz38.ap-northeast-2.rds.amazonaws.com:3306/muglove??serverTimezone=UTC&characterEncoding=UTF-8
+    jdbc-url: jdbc:mysql://muglove.cpzhoeggzz38.ap-northeast-2.rds.amazonaws.com:3306/muglove?serverTimezone=UTC&characterEncoding=UTF-8
     username: muglove
     password: anrmffjqm4!#
     driver-class-name: com.mysql.cj.jdbc.Driver
