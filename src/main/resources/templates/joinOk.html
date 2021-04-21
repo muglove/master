@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입 완료</title>
+</head>
+<body>
+<tr th:each="member : ${userList}">
+    <td>
+        <span th:text="${member.SEQ_NO}"></span>
+    </td>
+    <td>
+        <span th:text="${member.user_id}"></span>
+    </td>
+    <td>
+        <span th:text="${member.psswd}"></span>
+    </td>
+    <td>
+        <span th:text="${member.email}"></span>
+    </td>
+</tr>
+</body>
+</html>
