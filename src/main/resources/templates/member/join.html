@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
 </head>
 <body>
 <div class="container">
-    <form  method="post" id="joinForm">
+    <form action="/member/join" th:object="${member}" method="post" id="joinForm">
         <div class="form-group">
-            <label for="user_id">사용자 아이디</label>
-            <input id="user_id" type="text" class="form-control" name="userId" placeholder="사용자 아이디">
+            <label for="USER_ID">사용자 아이디</label>
+            <input th:field="*{USER_ID}" class="form-control"  type="text" placeholder="사용자 아이디">
         </div>
         <div class="form-group">
-            <label for="psswd">Password</label>
-            <input id="psswd" type="password" class="form-control" name="password" placeholder="비밀번호">
+            <label for="PSSWD">Password</label>
+            <input  type="password" th:field="*{PSSWD}" class="form-control"  placeholder="비밀번호">
         </div>
         <div class="form-group">
-            <label for="name">이 름</label>
-            <input id="name" type="text" class="form-control" name="name" placeholder="이름">
+            <label for="NAME">이 름</label>
+            <input th:field="*{NAME}" type="text" class="form-control" placeholder="이름">
         </div>
         <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" type="email" class="form-control" name="email" placeholder="이메일">
+            <label for="EMAIL">Email</label>
+            <input th:field="*{EMAIL}" type="email" class="form-control"  placeholder="이메일">
         </div>
         <button type="submit">Submit</button>
     </form>

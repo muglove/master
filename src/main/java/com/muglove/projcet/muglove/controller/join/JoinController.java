@@ -1,8 +1,10 @@
 package com.muglove.projcet.muglove.controller.join;
 
+import com.muglove.projcet.muglove.dto.MemberDto;
 import com.muglove.projcet.muglove.entity.Member;
 import com.muglove.projcet.muglove.entity.JoinRepository;
 import com.muglove.projcet.muglove.service.JoinService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,19 +13,38 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/member")
+@AllArgsConstructor
 public class JoinController {
 
     @Autowired
-    private JoinRepository joinRepository;
-
-
     private JoinService joinService;
-    public JoinController(JoinService joinService)
+
+    @GetMapping("/member/join")
+    public String join(Model model)
     {
-        this.joinService=joinService;
+        model.addAttribute("member",new MemberDto());
+
+        return "/member/join";
     }
 
+    @PostMapping("/member/join")
+    public String postJoin(MemberDto memberDto)
+    {
+        joinService.joinUser(memberDto);
+
+        return "redirect:/member/create";
+    }
+
+    @GetMapping("member/create")
+    public String joinComplete(Model model){
+        //List<JoinDto> joinDtoList =joinService.getUserList();
+        //model.addAttribute("userList",joinDtoList);
+
+        List<Member> memberList=joinService.writeUser();
+        model.addAttribute("memberList",memberList);
+        return "member/joinOk";
+    }
+    /*
     @RequestMapping(value = "/join", method = RequestMethod.GET)
     public void join()
     {
@@ -31,17 +52,18 @@ public class JoinController {
     }
 
     @RequestMapping(value = "/join", method = RequestMethod.POST)
-    public String postRegister(Member member)
+    public String postRegister(MemberDto memberdto)
     {
         System.out.println("post register");
 
-        joinRepository.save(member);
+        joinService.joinUser(memberdto);
         //joinService.joinUser(member);
         return "redirect:/member/create";
         //commit안됐는데?
     }
 
 
+*/
     /*
     @PostMapping("/create")
     public String joinComplete(HttpServletRequest request, HttpServletResponse response)
@@ -54,14 +76,6 @@ public class JoinController {
     }
      */
 
-    @GetMapping("/create")
-    public String joinComplete(Model model){
-        //List<JoinDto> joinDtoList =joinService.getUserList();
-        //model.addAttribute("userList",joinDtoList);
 
-        List<Member> memberList=joinRepository.findAll();
-        model.addAttribute("memberList",memberList);
-        return "member/joinOk";
-    }
 
 }

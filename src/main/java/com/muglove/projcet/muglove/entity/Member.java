@@ -22,13 +22,13 @@ public class Member {
     private String PSSWD;
 
     @Builder
-    public Member(String USER_ID,String EMAIL,String NAME, String PSSWD)
+    public Member(int SEQ_NO,String USER_ID,String EMAIL,String NAME, String PSSWD)
     {
+        this.SEQ_NO=SEQ_NO;
         this.USER_ID=USER_ID;
         this.EMAIL=EMAIL;
         this.NAME=NAME;
         this.PSSWD=PSSWD;
     }
-
 
 }
