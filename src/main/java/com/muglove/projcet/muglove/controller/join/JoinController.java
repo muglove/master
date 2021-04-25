@@ -38,6 +38,7 @@ public class JoinController {
         joinRepository.save(member);
         //joinService.joinUser(member);
         return "redirect:/member/create";
+        //commit안됐는데?
     }
 
 
