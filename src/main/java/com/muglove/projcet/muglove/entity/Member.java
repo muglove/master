@@ -10,15 +10,25 @@ import javax.persistence.*;
 @Entity
 @Table(name="member")
 @Getter
-@Setter
 @NoArgsConstructor
 public class Member {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int SEQ_NO;
+
     private String USER_ID;
     private String EMAIL;
     private String NAME;
     private String PSSWD;
+
+    @Builder
+    public Member(String USER_ID,String EMAIL,String NAME, String PSSWD)
+    {
+        this.USER_ID=USER_ID;
+        this.EMAIL=EMAIL;
+        this.NAME=NAME;
+        this.PSSWD=PSSWD;
+    }
+
 
 }

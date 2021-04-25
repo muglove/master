@@ -1,13 +1,8 @@
 package com.muglove.projcet.muglove.service;
 
-import com.muglove.projcet.muglove.dto.JoinDto;
+import com.muglove.projcet.muglove.entity.JoinRepository;
 import com.muglove.projcet.muglove.entity.Member;
-import com.muglove.projcet.muglove.repository.JoinRepository;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class JoinService {
@@ -17,6 +12,10 @@ public class JoinService {
     public JoinService(JoinRepository joinRepository)
     {
         this.joinRepository=joinRepository;
+    }
+
+    public void joinUser(Member member){
+        joinRepository.save(member);
     }
 /*
     @Transactional

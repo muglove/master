@@ -1,4 +1,4 @@
-package com.muglove.projcet.muglove.repository;
+package com.muglove.projcet.muglove.entity;
 
 
 import com.muglove.projcet.muglove.entity.Member;
