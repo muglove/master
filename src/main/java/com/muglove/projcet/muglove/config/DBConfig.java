@@ -22,16 +22,16 @@ import javax.sql.DataSource;
 @Configuration
 public class DBConfig {
 
-    @Bean(name = "testDataSource")
+    @Bean(name = "DataSource")
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource testDataSource() {
+    public DataSource DataSource() {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "testSessionFactory")
+    @Bean(name = "sessionFactory")
     @Primary
-    public SqlSessionFactory testSessionFactory(@Qualifier("testDataSource") DataSource dataSource) throws Exception {
+    public SqlSessionFactory sessionFactory(@Qualifier("DataSource") DataSource dataSource) throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:/mapper/*.xml"));
@@ -39,24 +39,17 @@ public class DBConfig {
         return sqlSessionFactoryBean.getObject();
     }
 
-    @Bean(name = "testTransactionManager")
+    @Bean(name = "transactionManager")
     @Primary
-    public DataSourceTransactionManager testTransactionManager(@Qualifier("testDataSource") DataSource dataSource) {
+    public DataSourceTransactionManager transactionManager(@Qualifier("DataSource") DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 
-    @Bean(name = "testSessionTemplate")
+    @Bean(name = "sessionTemplate")
     @Primary
-    public SqlSessionTemplate testSessionTemplate(@Qualifier("testSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+    public SqlSessionTemplate sessionTemplate(@Qualifier("sessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
-    @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
-        JpaTransactionManager transactionManager = new JpaTransactionManager();
-        transactionManager.setEntityManagerFactory(emf);
-
-        return transactionManager;
-    }
 
 }
