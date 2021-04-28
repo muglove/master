@@ -51,5 +51,4 @@ public class DBConfig {
         return new SqlSessionTemplate(sqlSessionFactory);
     }
 
-
 }
