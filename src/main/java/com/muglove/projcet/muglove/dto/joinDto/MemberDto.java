@@ -1,4 +1,4 @@
-package com.muglove.projcet.muglove.dto;
+package com.muglove.projcet.muglove.dto.joinDto;
 
 import com.muglove.projcet.muglove.entity.Member;
 import lombok.Builder;

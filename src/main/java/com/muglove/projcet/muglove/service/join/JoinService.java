@@ -1,6 +1,6 @@
-package com.muglove.projcet.muglove.service;
+package com.muglove.projcet.muglove.service.join;
 
-import com.muglove.projcet.muglove.dto.MemberDto;
+import com.muglove.projcet.muglove.dto.joinDto.MemberDto;
 import com.muglove.projcet.muglove.entity.JoinRepository;
 import com.muglove.projcet.muglove.entity.Member;
 import lombok.AllArgsConstructor;
@@ -27,7 +27,5 @@ public class JoinService {
     {
         return joinRepository.findAll();
     }
-
-
 
 }
