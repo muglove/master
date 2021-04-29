@@ -1,4 +1,4 @@
-package com.muglove.projcet.muglove.controller;
+package com.muglove.projcet.muglove.board.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,8 +11,4 @@ public class boardController {
         return "board/list";
     }
 
-    @GetMapping("/write")
-    public String write(){
-        return "board/write";
-    }
 }
