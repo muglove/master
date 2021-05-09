@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class JoinService {
 
-    @Autowired
+
     private JoinRepository joinRepository;
 
     @Transactional
@@ -28,5 +28,11 @@ public class JoinService {
         return joinRepository.findAll();
     }
 
+    @Transactional
+    public boolean CheckUserId(String userid)
+    {
+        boolean chk=joinRepository.existsByUSER_ID(userid);
 
+        return chk;
+    }
 }

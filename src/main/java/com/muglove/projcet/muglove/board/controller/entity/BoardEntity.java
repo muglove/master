@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "Board")
-public class BoardEntity extends TimeEntity {
+public class BoardEntity /*extends TimeEntity*/ {
 
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)

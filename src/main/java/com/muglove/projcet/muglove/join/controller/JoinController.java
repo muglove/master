@@ -1,5 +1,6 @@
 package com.muglove.projcet.muglove.join.controller;
 
+
 import com.muglove.projcet.muglove.join.dto.MemberDto;
 import com.muglove.projcet.muglove.join.entity.Member;
 import com.muglove.projcet.muglove.join.service.JoinService;
@@ -15,32 +16,30 @@ import java.util.List;
 @AllArgsConstructor
 public class JoinController {
 
-    @Autowired
+
     private JoinService joinService;
 
     @GetMapping("/join/join")
-    public String join(Model model)
-    {
-        model.addAttribute("member",new MemberDto());
+    public String join(Model model) {
+        model.addAttribute("member", new MemberDto());
 
         return "/join/join";
     }
 
     @PostMapping("/join/join")
-    public String postJoin(MemberDto memberDto)
-    {
+    public String postJoin(MemberDto memberDto) {
         joinService.joinUser(memberDto);
 
         return "redirect:/join/create";
     }
 
     @GetMapping("join/create")
-    public String joinComplete(Model model){
+    public String joinComplete(Model model) {
         //List<JoinDto> joinDtoList =joinService.getUserList();
         //model.addAttribute("userList",joinDtoList);
 
-        List<Member> memberList=joinService.writeUser();
-        model.addAttribute("memberList",memberList);
+        List<Member> memberList = joinService.writeUser();
+        model.addAttribute("memberList", memberList);
         return "join/joinOk";
     }
     /*
@@ -74,7 +73,6 @@ public class JoinController {
         return "joinOk";
     }
      */
-
 
 
 }
