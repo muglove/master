@@ -28,11 +28,4 @@ public class JoinService {
         return joinRepository.findAll();
     }
 
-    @Transactional
-    public boolean CheckUserId(String userid)
-    {
-        boolean chk=joinRepository.existsByUSER_ID(userid);
-
-        return chk;
-    }
 }

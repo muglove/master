@@ -42,6 +42,14 @@ public class JoinController {
         model.addAttribute("memberList", memberList);
         return "join/joinOk";
     }
+
+    @PostMapping("/join/idCheck")
+    @ResponseBody
+    public int idChkMethod(){
+        int result=0;
+        return result;
+    }
+
     /*
     @RequestMapping(value = "/join", method = RequestMethod.GET)
     public void join()

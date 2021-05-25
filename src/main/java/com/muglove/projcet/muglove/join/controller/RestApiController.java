@@ -15,11 +15,6 @@ public class RestApiController {
     @GetMapping("user/checkUserIdExist/{user_id}")
     public String checkUserIdExist(@PathVariable String user_id)
     {
-        boolean chk=joinService.CheckUserId(user_id);
-
-        if(chk==true)
-            return "아이디가 중복되었슴돠";
-        else
             return "아이디 사용 가능";
     }
 }
