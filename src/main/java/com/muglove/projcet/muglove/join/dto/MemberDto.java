@@ -1,13 +1,10 @@
-package com.muglove.projcet.muglove.dto.joinDto;
+package com.muglove.projcet.muglove.join.dto;
 
-import com.muglove.projcet.muglove.entity.Member;
+import com.muglove.projcet.muglove.join.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.GeneratedValue;
-import javax.print.attribute.standard.MediaSize;
 
 @Getter
 @Setter

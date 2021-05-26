@@ -1,6 +1,6 @@
 package com.muglove.projcet.muglove.login.service;
 
-import com.muglove.projcet.muglove.entity.Member;
+import com.muglove.projcet.muglove.join.entity.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

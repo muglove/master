@@ -1,8 +1,9 @@
-package com.muglove.projcet.muglove.controller.join;
+package com.muglove.projcet.muglove.join.controller;
 
-import com.muglove.projcet.muglove.dto.joinDto.MemberDto;
-import com.muglove.projcet.muglove.entity.Member;
-import com.muglove.projcet.muglove.service.join.JoinService;
+
+import com.muglove.projcet.muglove.join.dto.MemberDto;
+import com.muglove.projcet.muglove.join.entity.Member;
+import com.muglove.projcet.muglove.join.service.JoinService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,34 +16,40 @@ import java.util.List;
 @AllArgsConstructor
 public class JoinController {
 
-    @Autowired
+
     private JoinService joinService;
 
-    @GetMapping("/member/join")
-    public String join(Model model)
-    {
-        model.addAttribute("member",new MemberDto());
+    @GetMapping("/join/join")
+    public String join(Model model) {
+        model.addAttribute("member", new MemberDto());
 
-        return "/member/join";
+        return "/join/join";
     }
 
-    @PostMapping("/member/join")
-    public String postJoin(MemberDto memberDto)
-    {
+    @PostMapping("/join/join")
+    public String postJoin(MemberDto memberDto) {
         joinService.joinUser(memberDto);
 
-        return "redirect:/member/create";
+        return "redirect:/join/create";
     }
 
-    @GetMapping("member/create")
-    public String joinComplete(Model model){
+    @GetMapping("join/create")
+    public String joinComplete(Model model) {
         //List<JoinDto> joinDtoList =joinService.getUserList();
         //model.addAttribute("userList",joinDtoList);
 
-        List<Member> memberList=joinService.writeUser();
-        model.addAttribute("memberList",memberList);
-        return "member/joinOk";
+        List<Member> memberList = joinService.writeUser();
+        model.addAttribute("memberList", memberList);
+        return "join/joinOk";
     }
+
+    @PostMapping("/join/idCheck")
+    @ResponseBody
+    public int idChkMethod(){
+        int result=0;
+        return result;
+    }
+
     /*
     @RequestMapping(value = "/join", method = RequestMethod.GET)
     public void join()
@@ -74,7 +81,6 @@ public class JoinController {
         return "joinOk";
     }
      */
-
 
 
 }

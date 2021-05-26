@@ -1,4 +1,4 @@
-package com.muglove.projcet.muglove.controller.join;
+package com.muglove.projcet.muglove.join.controller;
 
 
 import org.springframework.stereotype.Controller;

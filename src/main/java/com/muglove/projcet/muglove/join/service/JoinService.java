@@ -1,8 +1,8 @@
-package com.muglove.projcet.muglove.service.join;
+package com.muglove.projcet.muglove.join.service;
 
-import com.muglove.projcet.muglove.dto.joinDto.MemberDto;
-import com.muglove.projcet.muglove.entity.JoinRepository;
-import com.muglove.projcet.muglove.entity.Member;
+import com.muglove.projcet.muglove.join.dto.MemberDto;
+import com.muglove.projcet.muglove.join.entity.JoinRepository;
+import com.muglove.projcet.muglove.join.entity.Member;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 public class JoinService {
 
-    @Autowired
+
     private JoinRepository joinRepository;
 
     @Transactional

@@ -1,4 +1,4 @@
-package com.muglove.projcet.muglove.entity;
+package com.muglove.projcet.muglove.join.entity;
 
 import lombok.Builder;
 import lombok.Getter;

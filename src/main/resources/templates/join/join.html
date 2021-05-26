@@ -6,10 +6,11 @@
 </head>
 <body>
 <div class="container">
-    <form action="/member/join" th:object="${member}" method="post" id="joinForm">
+    <form action="/join/join" th:object="${member}" method="post" id="joinForm">
         <div class="form-group">
             <label for="USER_ID">사용자 아이디</label>
             <input th:field="*{USER_ID}" class="form-control"  type="text" placeholder="사용자 아이디">
+            <input type="button" value="중복확인" onclick="fn_idchk();"  />
         </div>
         <div class="form-group">
             <label for="PSSWD">Password</label>
@@ -23,8 +24,31 @@
             <label for="EMAIL">Email</label>
             <input th:field="*{EMAIL}" type="email" class="form-control"  placeholder="이메일">
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
     </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    function fn_idchk(){
+        $.ajax(
+        {
+            url:"/join/idCheck",
+            type : "post",
+            dataType : "json",
+            data : {"USER_ID" : $("#userId").val()},
+            success : function (data){
+                if(data==1){
+                    alert("중복된 아이디입니다.");
+                }
+                else if(data==0){
+                    $("#idChk").attr("value","Y");
+                    alert("사용가능한 아이디입니다.");
+                }
+            }
+        }
+        )
+    }
+</script>
 </body>
 </html>
