@@ -17,11 +17,12 @@ public class JoinService {
 
     private JoinRepository joinRepository;
 
+    //repository.save == insert 구문
     @Transactional
-    public void joinUser(MemberDto memberDto){
-       joinRepository.save(memberDto.toEntity());
+    public void joinUser(MemberDto memberDto){ joinRepository.save(memberDto.toEntity());
     }
 
+    //repository.findall == findAll();
     @Transactional
     public List<Member> writeUser()
     {

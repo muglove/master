@@ -15,7 +15,6 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int SEQ_NO;
-
     private String USER_ID;
     private String EMAIL;
     private String NAME;

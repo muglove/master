@@ -33,6 +33,7 @@ public class JoinController {
         return "redirect:/join/create";
     }
 
+    //DB에 있는 DATA를 출력
     @GetMapping("join/create")
     public String joinComplete(Model model) {
         //List<JoinDto> joinDtoList =joinService.getUserList();
