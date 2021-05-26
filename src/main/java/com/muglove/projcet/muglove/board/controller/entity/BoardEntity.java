@@ -22,7 +22,7 @@ public class BoardEntity extends TimeEntity {
     private String REG_USER_ID; // 등록자 ID
     private String REG_DTTM; // 등록일자+시간
     private String ALT_USER_ID; // 수정자 ID
-    private String ALT_DTTM; // 수정일자+시간
+    private String ALT_DTTM; // 수정일자+시간 //
 
     @Builder
     public BoardEntity(int BRD_NO, int BRD_MNG_NO, String title, String content, String REG_USER_ID, String REG_DTTM,
