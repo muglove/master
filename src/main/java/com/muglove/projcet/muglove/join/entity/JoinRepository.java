@@ -9,5 +9,6 @@ import java.util.List;
 
 
 public interface JoinRepository extends JpaRepository<Member, Integer> {
-
+    @Query("select m from Member AS m where m.USER_ID=?1")
+    Member findByUSER_ID(String user_id);
 }
