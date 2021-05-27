@@ -47,7 +47,8 @@ public class JoinController {
     @PostMapping("/join/idCheck")
     @ResponseBody
     public int idChkMethod(){
-        int result=0;
+        int result;
+        result= joinService.Id_Check("Temp");
         return result;
     }
 

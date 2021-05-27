@@ -29,4 +29,13 @@ public class JoinService {
         return joinRepository.findAll();
     }
 
+    @Transactional
+    public int Id_Check(String user_id)
+    {
+        Member member=joinRepository.findByUSER_ID(user_id);
+         if(user_id.equals(member.getUSER_ID()))
+             return 1;
+         else
+             return 0;
+    }
 }
